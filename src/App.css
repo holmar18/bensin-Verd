@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+html,
+body,
+#root,
+.AppContainer {
   min-height: 100vh;
+  /* Gradiend */
+  background-image: linear-gradient(
+    to left bottom,
+    #f82ec3,
+    #e550d7,
+    #cf67e7,
+    #b978f2,
+    #a287f9,
+    #9589fa,
+    #878afa,
+    #798bf9,
+    #6e82f7,
+    #6479f6,
+    #5870f4,
+    #4c67f2
+  );
+}
+
+/* App Container */
+.AppContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.outercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35rem;
+  z-index: 0;
+
+  /* GlassMorp */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.outercontainer:hover {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(249, 250, 255, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.outercontainer:nth-child(2) {
+  margin-top: 2%;
+}
+
+.innercontainer {
+  padding: 1rem;
+  width: 100%;
+}
+
+.titleContainer {
+  padding: 0.7rem;
+}
+
+.title {
+  font-size: 24px;
+  letter-spacing: 0.048;
+  font-family: 'Rubik Mono One', sans-serif;
 }
