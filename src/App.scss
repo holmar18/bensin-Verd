@@ -162,6 +162,23 @@ button {
   padding: 1rem;
 }
 
+.themeContainerLang {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.langLogo {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  position: relative;
+  margin-bottom: 0;
+}
+
 #theme {
   width: 3rem;
 }

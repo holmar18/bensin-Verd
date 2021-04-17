@@ -20,8 +20,10 @@ function PriceDisplay(props) {
             props.station[`${props.type.disc}`] !== null ? 'discNot' : 'disc'
           }`}>
           {props.station[`${props.type.disc}`] !== null
-            ? `Afsláttur: ${props.station[`${props.type.disc}`]}`
-            : 'Enginn Afsláttur'}
+            ? `${props.translations.discount}: ${
+                props.station[`${props.type.disc}`]
+              }`
+            : `${props.translations.nodiscount}`}
         </span>
         <span className={`${props.handleTheme('iTextLight')} bensin`}>
           {props.station[`${props.type.gas}`]}

@@ -6,6 +6,8 @@ import PriceDisplay from './components/priceDisplay/priceDisplay';
 import {BestPrice} from './service/helperService';
 import PetrolLogo from './assets/icons/PetrolStation_240x240.svg';
 import PetrolLogoLight from './assets/icons/PetrolStationLight_240x240.svg';
+import currentLang from './translation/translation';
+import Toggler from './components/toggler';
 
 function GasApp() {
   const [gasData, setGasData] = React.useState({
@@ -15,10 +17,14 @@ function GasApp() {
     dyrtDis: [],
   });
   const [theme, setTheme] = React.useState('0');
+  const [lang, setLang] = React.useState({
+    code: 'is',
+    bin: '0',
+  });
 
   React.useEffect(() => {
     ReactGa.initialize('G-V2MBYNFFZN');
-    ReactGa.pageview('/');
+    ReactGa.pageview(window.location.pathname + window.location.search);
     getGasPrices(
       (CB) => {
         let b = BestPrice(CB.results, 'odyrt', 'bensin95').sort(
@@ -41,8 +47,14 @@ function GasApp() {
     );
   }, []);
 
-  const handleChange = (e) => {
+  const handleChangeDragTheme = (e) => {
     setTheme(e.target.value);
+  };
+
+  const handleChangeDragLang = (e) => {
+    e.target.value === '0'
+      ? setLang({code: 'is', bin: '0'})
+      : setLang({code: '', bin: '1'});
   };
 
   const handleTheme = (type) => {
@@ -63,33 +75,42 @@ function GasApp() {
     }
   };
 
+  const handleSetTheme = (value) => {
+    setTheme(value);
+  };
+
+  const handleSetLang = (language) => {
+    language === '0'
+      ? setLang({code: 'is', bin: '0'})
+      : setLang({code: '', bin: '1'});
+  };
+
   return (
     <div className={`AppContainer ${handleTheme('AppContainer')}`}>
       {/* Theme Picker */}
-      <div className='themeContainer'>
-        <button type='button' onClick={() => setTheme('0')}>
-          <p>☀</p>
-        </button>
-        <input
-          type='range'
-          id='theme'
-          name='vol'
-          min='0'
-          max='1'
-          value={theme}
-          onChange={(e) => handleChange(e)}
-        />
-        <button type='button' onClick={() => setTheme('1')}>
-          <p>☾</p>
-        </button>
-      </div>
       {/* Theme Picker - END */}
+      <Toggler
+        handleSet={handleSetTheme}
+        handleChange={handleChangeDragTheme}
+        para={{first: '☀', second: '☾'}}
+        theme={theme}
+        class={'themeContainer'}
+      />
+      {/* Language Picker */}
+      <Toggler
+        handleSet={handleSetLang}
+        handleChange={handleChangeDragLang}
+        para={{first: 'IS', second: 'EN'}}
+        theme={lang.bin}
+        class={'themeContainerLang'}
+      />
+      {/* Language Picker - END */}
 
       {/* Bensín Partur Titill */}
       <div className='outercontainerFlexTitle'>
         <div className={`outercontainer ${handleTheme('outercontainer')}`}>
           <span className={`gasSectionTitle ${handleTheme('gasSectionTitle')}`}>
-            Bensínvaktin bensínverð
+            {currentLang(lang.code).Gastitle}
             <img
               src={theme === '0' ? PetrolLogo : PetrolLogoLight}
               style={{height: '2rem', width: '2rem', marginLeft: '0.8rem'}}
@@ -106,7 +127,7 @@ function GasApp() {
         <div className={`outercontainer ${handleTheme('outercontainer')}`}>
           <div className='titleContainer'>
             <span className={`${handleTheme('titleLight')}`}>
-              Ódýrasta bensínið '95
+              {currentLang(lang.code).cheap95}
             </span>
           </div>
           <div className='innercontainer'>
@@ -118,6 +139,7 @@ function GasApp() {
                   type={{gas: 'bensin95', disc: 'bensin95_discount'}}
                   theme={theme}
                   handleTheme={handleTheme}
+                  translations={currentLang(lang.code)}
                 />
               );
             })}
@@ -131,7 +153,7 @@ function GasApp() {
         <div className={`outercontainer ${handleTheme('outercontainer')}`}>
           <div className='titleContainer'>
             <span className={`${handleTheme('titleLight')}`}>
-              Dýrasta bensínið '95
+              {currentLang(lang.code).expen95}
             </span>
           </div>
           <div className='innercontainer'>
@@ -143,6 +165,7 @@ function GasApp() {
                   type={{gas: 'bensin95', disc: 'bensin95_discount'}}
                   theme={theme}
                   handleTheme={handleTheme}
+                  translations={currentLang(lang.code)}
                 />
               );
             })}
@@ -156,7 +179,7 @@ function GasApp() {
         <div className={`outercontainer ${handleTheme('outercontainer')}`}>
           <div className='titleContainer'>
             <span className={`${handleTheme('titleLight')}`}>
-              Ódýrasta bensínið Dísel
+              {currentLang(lang.code).cheapDis}
             </span>
           </div>
           <div className='innercontainer'>
@@ -168,6 +191,7 @@ function GasApp() {
                   type={{gas: 'diesel', disc: 'diesel_discount'}}
                   theme={theme}
                   handleTheme={handleTheme}
+                  translations={currentLang(lang.code)}
                 />
               );
             })}
@@ -181,7 +205,7 @@ function GasApp() {
         <div className={`outercontainer ${handleTheme('outercontainer')}`}>
           <div className='titleContainer'>
             <span className={`${handleTheme('titleLight')}`}>
-              Dýrasta bensínið Dísel
+              {currentLang(lang.code).expenDis}
             </span>
           </div>
           <div className='innercontainer'>
@@ -193,6 +217,7 @@ function GasApp() {
                   type={{gas: 'diesel', disc: 'diesel_discount'}}
                   theme={theme}
                   handleTheme={handleTheme}
+                  translations={currentLang(lang.code)}
                 />
               );
             })}
