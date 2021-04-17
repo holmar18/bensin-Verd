@@ -307,6 +307,7 @@ button:hover {
   }
   .outercontainerFlexTitle {
     width: 95%;
+    margin-top: 4rem;
   }
   .gasSectionTitle {
     font-size: 20px;
@@ -329,6 +330,10 @@ button:hover {
     font-size: 18px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
+  }
+  .pumpIcon {
+    height: 1rem !important;
+    width: 1rem !important;
   }
 }
 /*# sourceMappingURL=App.css.map */

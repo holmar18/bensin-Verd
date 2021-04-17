@@ -91,6 +91,7 @@ function GasApp() {
               src={theme === '0' ? PetrolLogo : PetrolLogoLight}
               style={{height: '2rem', width: '2rem', marginLeft: '0.8rem'}}
               alt='bensinvaktin logo'
+              className='pumpIcon'
             />
           </span>
         </div>
