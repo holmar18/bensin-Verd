@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGa from 'react-ga';
 import './App.css';
 import {getGasPrices} from './service/gasService';
 import PriceDisplay from './components/priceDisplay/priceDisplay';
@@ -16,6 +17,8 @@ function GasApp() {
   const [theme, setTheme] = React.useState('0');
 
   React.useEffect(() => {
+    ReactGa.initialize('G-V2MBYNFFZN');
+    ReactGa.pageview('/');
     getGasPrices(
       (CB) => {
         let b = BestPrice(CB.results, 'odyrt', 'bensin95').sort(
