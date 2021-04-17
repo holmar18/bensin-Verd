@@ -16,6 +16,21 @@ $primaryBackGrad: linear-gradient(
   #5870f4,
   #4c67f2
 );
+$darkModeBackground: linear-gradient(
+  to right bottom,
+  #d6d6d6,
+  #bcbcbc,
+  #a3a3a3,
+  #8b8b8b,
+  #737373,
+  #676767,
+  #5b5b5b,
+  #505050,
+  #4d4d4d,
+  #494949,
+  #464646,
+  #434343
+);
 $googleFontOne: 'Rubik Mono One', sans-serif;
 $googleFontTwo: 'Walter Turncoat', cursive;
 
@@ -24,13 +39,11 @@ body,
 #root,
 .AppContainer {
   min-height: 100vh;
-  /* Gradiend */
-  background-image: $primaryBackGrad;
 }
 
 /*
 
-  THEME SLIDER 
+  THEME SLIDER og Takkarnir við hann
 
 */
 
@@ -48,6 +61,9 @@ input[type='range']::-moz-focus-outer {
 }
 input[type='range']:hover {
   outline: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Chrome */
@@ -102,6 +118,17 @@ input[type='range']::-ms-fill-upper {
   height: 100%;
 }
 
+button {
+  border-radius: 5px;
+  font-size: 24px;
+  background-color: rgba(104, 106, 131, 0);
+  border: 0px;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 /*
 
   THEME SLIDER END
@@ -116,6 +143,16 @@ input[type='range']::-ms-fill-upper {
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.AppContainerLight {
+  /* Gradiend */
+  background-image: $primaryBackGrad;
+}
+
+.AppContainerDark {
+  /* Gradiend */
+  background-image: $darkModeBackground;
 }
 
 .themeContainer {
@@ -135,6 +172,14 @@ input[type='range']::-ms-fill-upper {
   font-family: $googleFontTwo;
 }
 
+.gasSectionTitleLight {
+  color: rgb(41, 41, 41);
+}
+
+.gasSectionTitleDark {
+  color: rgb(224, 224, 224);
+}
+
 .outercontainerFlexTitle {
   display: flex;
   justify-items: center;
@@ -152,7 +197,9 @@ input[type='range']::-ms-fill-upper {
   align-items: center;
   width: 35rem;
   z-index: 0;
+}
 
+.outercontainerLight {
   /* GlassMorp */
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -164,6 +211,25 @@ input[type='range']::-ms-fill-upper {
   &:hover {
     background: rgba(255, 255, 255, 0.55);
     box-shadow: 0 8px 32px 0 rgba(249, 250, 255, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+.outercontainerDark {
+  /* GlassMorp */
+  background: rgba(21, 21, 21, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(104, 106, 131, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  &:hover {
+    background: rgba(87, 87, 87, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(150, 152, 190, 0.37);
     backdrop-filter: blur(8.5px);
     -webkit-backdrop-filter: blur(8.5px);
     border-radius: 10px;
@@ -186,10 +252,17 @@ input[type='range']::-ms-fill-upper {
   padding: 0.7rem;
 }
 
-.title {
+.titleLight {
   font-size: 24px;
   letter-spacing: 0.048;
   font-family: $googleFontOne;
+}
+
+.titleDark {
+  font-size: 24px;
+  letter-spacing: 0.048;
+  font-family: $googleFontOne;
+  color: rgb(224, 224, 224);
 }
 
 /* Spjaldtölvur */

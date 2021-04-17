@@ -5,18 +5,25 @@ import './priceDisplay.css';
 function PriceDisplay(props) {
   return (
     <React.Fragment>
-      <div className={'stationItemContainer'}>
-        <span className={'iText company'}>{props.station.company}</span>
-        <span className={'iText name'}>{props.station.name}</span>
+      <div
+        className={`stationItemContainer ${props.handleTheme(
+          'stationItemContainerLight'
+        )}`}>
+        <span className={`${props.handleTheme('iTextLight')} company`}>
+          {props.station.company}
+        </span>
+        <span className={`${props.handleTheme('iTextLight')} name`}>
+          {props.station.name}
+        </span>
         <span
-          className={`iText ${
+          className={`${props.handleTheme('iTextLight')} ${
             props.station[`${props.type.disc}`] !== null ? 'discNot' : 'disc'
           }`}>
           {props.station[`${props.type.disc}`] !== null
             ? `Afsláttur: ${props.station[`${props.type.disc}`]}`
             : 'Enginn Afsláttur'}
         </span>
-        <span className={'iText bensin'}>
+        <span className={`${props.handleTheme('iTextLight')} bensin`}>
           {props.station[`${props.type.gas}`]}
         </span>
       </div>

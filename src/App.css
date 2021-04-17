@@ -6,14 +6,11 @@ body,
 #root,
 .AppContainer {
   min-height: 100vh;
-  /* Gradiend */
-  background-image: -webkit-gradient(linear, right top, left bottom, from(#f82ec3), color-stop(#e550d7), color-stop(#cf67e7), color-stop(#b978f2), color-stop(#a287f9), color-stop(#9589fa), color-stop(#878afa), color-stop(#798bf9), color-stop(#6e82f7), color-stop(#6479f6), color-stop(#5870f4), to(#4c67f2));
-  background-image: linear-gradient(to left bottom, #f82ec3, #e550d7, #cf67e7, #b978f2, #a287f9, #9589fa, #878afa, #798bf9, #6e82f7, #6479f6, #5870f4, #4c67f2);
 }
 
 /*
 
-  THEME SLIDER 
+  THEME SLIDER og Takkarnir við hann
 
 */
 input[type='range'] {
@@ -33,6 +30,10 @@ input[type='range']::-moz-focus-outer {
 
 input[type='range']:hover {
   outline: none;
+}
+
+input[type='range']:hover:hover {
+  cursor: pointer;
 }
 
 /* Chrome */
@@ -87,6 +88,18 @@ input[type='range']::-ms-fill-upper {
   height: 100%;
 }
 
+button {
+  border-radius: 5px;
+  font-size: 24px;
+  background-color: rgba(104, 106, 131, 0);
+  border: 0px;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 /*
 
   THEME SLIDER END
@@ -112,6 +125,18 @@ input[type='range']::-ms-fill-upper {
   width: 100%;
 }
 
+.AppContainerLight {
+  /* Gradiend */
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#f82ec3), color-stop(#e550d7), color-stop(#cf67e7), color-stop(#b978f2), color-stop(#a287f9), color-stop(#9589fa), color-stop(#878afa), color-stop(#798bf9), color-stop(#6e82f7), color-stop(#6479f6), color-stop(#5870f4), to(#4c67f2));
+  background-image: linear-gradient(to left bottom, #f82ec3, #e550d7, #cf67e7, #b978f2, #a287f9, #9589fa, #878afa, #798bf9, #6e82f7, #6479f6, #5870f4, #4c67f2);
+}
+
+.AppContainerDark {
+  /* Gradiend */
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#d6d6d6), color-stop(#bcbcbc), color-stop(#a3a3a3), color-stop(#8b8b8b), color-stop(#737373), color-stop(#676767), color-stop(#5b5b5b), color-stop(#505050), color-stop(#4d4d4d), color-stop(#494949), color-stop(#464646), to(#434343));
+  background-image: linear-gradient(to right bottom, #d6d6d6, #bcbcbc, #a3a3a3, #8b8b8b, #737373, #676767, #5b5b5b, #505050, #4d4d4d, #494949, #464646, #434343);
+}
+
 .themeContainer {
   position: absolute;
   top: 0;
@@ -127,6 +152,14 @@ input[type='range']::-ms-fill-upper {
   font-size: 40px;
   line-height: 2;
   font-family: "Walter Turncoat", cursive;
+}
+
+.gasSectionTitleLight {
+  color: #292929;
+}
+
+.gasSectionTitleDark {
+  color: #e0e0e0;
 }
 
 .outercontainerFlexTitle {
@@ -157,6 +190,9 @@ input[type='range']::-ms-fill-upper {
           align-items: center;
   width: 35rem;
   z-index: 0;
+}
+
+.outercontainerLight {
   /* GlassMorp */
   background: rgba(255, 255, 255, 0.25);
   -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -167,10 +203,31 @@ input[type='range']::-ms-fill-upper {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.outercontainer:hover {
+.outercontainerLight:hover {
   background: rgba(255, 255, 255, 0.55);
   -webkit-box-shadow: 0 8px 32px 0 rgba(249, 250, 255, 0.37);
           box-shadow: 0 8px 32px 0 rgba(249, 250, 255, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.outercontainerDark {
+  /* GlassMorp */
+  background: rgba(21, 21, 21, 0.5);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(104, 106, 131, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(104, 106, 131, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.outercontainerDark:hover {
+  background: rgba(87, 87, 87, 0.5);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(150, 152, 190, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(150, 152, 190, 0.37);
   backdrop-filter: blur(8.5px);
   -webkit-backdrop-filter: blur(8.5px);
   border-radius: 10px;
@@ -192,10 +249,17 @@ input[type='range']::-ms-fill-upper {
   padding: 0.7rem;
 }
 
-.title {
+.titleLight {
   font-size: 24px;
   letter-spacing: 0.048;
   font-family: "Rubik Mono One", sans-serif;
+}
+
+.titleDark {
+  font-size: 24px;
+  letter-spacing: 0.048;
+  font-family: "Rubik Mono One", sans-serif;
+  color: #e0e0e0;
 }
 
 /* Spjaldtölvur */

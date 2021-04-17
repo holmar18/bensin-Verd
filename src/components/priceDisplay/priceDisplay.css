@@ -12,7 +12,31 @@
   transition: all 0.2s ease-in-out;
 }
 
-.stationItemContainer:hover {
+.stationItemContainer.outercontainer {
+  /* TODO : laga heigt þegar hover*/
+  height: calc(100% - 10rem) !important;
+  width: calc(100% - 10rem) !important;
+  color: red !important;
+}
+
+.stationItemContainerDark:hover {
+  z-index: 1;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  color: #c7c7c7;
+  /* GlassMorp */
+  background: rgba(36, 36, 36, 0.55);
+  -webkit-box-shadow: 0 5px 10px 0 rgba(249, 250, 255, 0.37);
+          box-shadow: 0 5px 10px 0 rgba(249, 250, 255, 0.37);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stationItemContainerLight:hover {
   z-index: 1;
   margin-bottom: 1rem;
   padding: 0.7rem;
@@ -28,15 +52,14 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.stationItemContainer.outercontainer {
-  /* TODO : laga heigt þegar hover*/
-  height: calc(100% - 10rem) !important;
-  width: calc(100% - 10rem) !important;
-  color: red !important;
+.iTextLight {
+  font-size: 12px;
+  color: black;
 }
 
-.iText {
+.iTextDark {
   font-size: 12px;
+  color: #e7e7e7;
 }
 
 .name,
@@ -61,14 +84,20 @@
 
 /* Spjaldtölvur */
 @media only screen and (min-width: 768px) and (max-width: 800px) {
-  .iText {
+  .iTextLight {
+    font-size: 12px;
+  }
+  .iTextDark {
     font-size: 12px;
   }
 }
 
 /* Mobiles */
 @media only screen and (min-width: 200px) and (max-width: 767px) {
-  .iText {
+  .iTextLight {
+    font-size: 10px;
+  }
+  .iTextDark {
     font-size: 10px;
   }
 }
