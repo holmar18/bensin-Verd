@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './priceDisplay.css';
 
 function PriceDisplay(props) {
-  console.log('PROPS: ', props);
   return (
     <React.Fragment>
       <div className={'stationItemContainer'}>
@@ -11,13 +10,15 @@ function PriceDisplay(props) {
         <span className={'iText name'}>{props.station.name}</span>
         <span
           className={`iText ${
-            props.station.bensin95_discount !== null ? 'disc' : 'discNot'
+            props.station[`${props.type.disc}`] !== null ? 'discNot' : 'disc'
           }`}>
-          {props.station.bensin95_discount !== null
-            ? 'Afsláttur'
+          {props.station[`${props.type.disc}`] !== null
+            ? `Afsláttur: ${props.station[`${props.type.disc}`]}`
             : 'Enginn Afsláttur'}
         </span>
-        <span className={'iText bensin'}>{props.station.bensin95}</span>
+        <span className={'iText bensin'}>
+          {props.station[`${props.type.gas}`]}
+        </span>
       </div>
     </React.Fragment>
   );

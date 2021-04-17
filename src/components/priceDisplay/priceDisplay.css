@@ -1,27 +1,38 @@
+@charset "UTF-8";
 .stationItemContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0.3rem;
-
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+
 .stationItemContainer:hover {
-  z-index: 2;
+  z-index: 1;
   margin-bottom: 1rem;
   padding: 0.7rem;
-
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   /* GlassMorp */
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: white;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stationItemContainer.outercontainer {
+  /* TODO : laga heigt þegar hover*/
+  height: calc(100% - 10rem) !important;
+  width: calc(100% - 10rem) !important;
+  color: red !important;
 }
 
 .iText {
@@ -41,8 +52,24 @@
 }
 
 .disc {
-  color: rgb(255, 69, 0, 0.8);
+  color: rgba(255, 69, 0, 0.8);
 }
+
 .discNot {
-  color: rgb(26, 150, 26, 0.8);
+  color: rgba(26, 150, 26, 0.8);
 }
+
+/* Spjaldtölvur */
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+  .iText {
+    font-size: 12px;
+  }
+}
+
+/* Mobiles */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  .iText {
+    font-size: 10px;
+  }
+}
+/*# sourceMappingURL=priceDisplay.css.map */

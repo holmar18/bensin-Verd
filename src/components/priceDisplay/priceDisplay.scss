@@ -1,0 +1,71 @@
+$primaryBack: rgba(255, 255, 255, 1);
+
+.stationItemContainer {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    z-index: 1;
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+
+    /* GlassMorp */
+    background: $primaryBack;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  &.outercontainer {
+    /* TODO : laga heigt þegar hover*/
+    height: calc(100% - 10rem) !important;
+    width: calc(100% - 10rem) !important;
+    color: red !important;
+  }
+}
+
+.iText {
+  font-size: 12px;
+}
+
+.name,
+.company,
+.disc,
+.discNot {
+  width: 29%;
+}
+
+.bensin {
+  width: 10%;
+  font-weight: bold;
+}
+
+.disc {
+  color: rgba(255, 69, 0, 0.8);
+}
+.discNot {
+  color: rgba(26, 150, 26, 0.8);
+}
+
+/* Spjaldtölvur */
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+  .iText {
+    font-size: 12px;
+  }
+}
+
+/* Mobiles */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  .iText {
+    font-size: 10px;
+  }
+}
