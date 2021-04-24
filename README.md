@@ -9,4 +9,4 @@ _NPM START_
 
 [bensinvaktin](https://bensinvaktin.netlify.app/)
 
-![Sample](/src/assets/sampleSS.png)
+![Sample](/src/assets/sampleIMG.png)
