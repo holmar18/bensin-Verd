@@ -1,4 +1,4 @@
-# Price checking app for icelandic gas stations.
+# Gas station price watch for Iceland.
 
 ## Start
 
